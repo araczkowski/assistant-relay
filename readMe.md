@@ -1,29 +1,10 @@
 
-
-# Assistant Relay v2.0!
-
-**Note: V1 is no longer supported. There is no upgrade path to V2, simply save your existing auth file, download V2 to a new folder and away you go**
-
-Assistant Relay is a Node.js server. It's exposed with an Express Web Server that allows for commands to be sent to the Google Assistant.
-
-It also supports the Google Home Broadcast command, so unlike other TTS solutions that cast audio, Assistant Relay allows you to send audio notifications to your Google Home devices, without interrupting music.
-
-## New in V2.1
-
-- Quiet Hours - thanks joeqread
-- Mute Startup - thanks joeqread
-- Bug fix for presets
-
-## New in V2.0
-
-- JSON responses for all requests
-- Access to Google Assistant audio Responses
-- 1 endpoint for all requests
-- Improved setup process removing manual user configuration
-
 # Installation
 
 Download a copy of this repository and then use `npm install` to get started
+
+pm2 start npm --name GoogleAssistant -- start
+
 
 ## Configuration
 ### Creating Users
