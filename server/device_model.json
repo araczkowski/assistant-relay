@@ -1,0 +1,10 @@
+{
+  "project_id": "assistant-relay-9ffcd",
+  "device_model_id": "assistant-relay-9ffcd-assistant-relay-0cx2lt",
+  "manifest": {
+    "manufacturer": "Assistant Relay",
+    "product_name": "Assistant Relay",
+    "device_description": "Assistant Relay device"
+  },
+  "device_type": "action.devices.types.LIGHT"
+}

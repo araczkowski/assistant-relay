@@ -1,0 +1,6 @@
+{
+  "id": "assistant_relay",
+  "model_id": "assistant-relay-9ffcd-assistant-relay-0cx2lt",
+  "nickname": "My Assistant Relay",
+  "client_type": "SDK_LIBRARY"
+}

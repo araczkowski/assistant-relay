@@ -1,0 +1,33 @@
+{
+  "port": "9000",
+  "muteStartup": true,
+  "enableQuietHours": false,
+  "quietHours": {
+    "start": 25,
+    "end": 25
+  },
+  "customAddress": false,
+  "baseUrl": "localhost:9000",
+  "conversation": {
+    "language": "en-US",
+    "audio": {
+      "sampleRateOut": 24000,
+      "sampleRateIn": 24000
+    },
+    "textQuery": "broadcast Assistant Relay is now setup and running",
+    "deviceModelId": "assistant-relay-9ffcd-assistant-relay-0cx2lt",
+    "deviceId": "assistant_relay"
+  },
+  "users": {
+    "greg": {
+      "keyFilePath": "C:\\Users\\Greg\\Documents\\Projects\\assistant-relay\\server\\configurations\\secrets\\greg.json",
+      "savedTokensPath": "C:\\Users\\Greg\\Documents\\Projects\\assistant-relay\\server\\configurations\\tokens\\greg-tokens.json"
+    }
+  },
+  "assistants": {
+    "greg": {
+      "_events": {},
+      "_eventsCount": 2
+    }
+  }
+}
