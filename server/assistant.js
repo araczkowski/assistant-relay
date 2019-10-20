@@ -100,7 +100,9 @@ var self = module.exports = {
       conversation.write(file)
       conversation
         .on('audio-data', data => {
-          fileStream.write(data)
+          // ais do not write output info
+          // TODO send this audio to exoplayer
+          // fileStream.write(data)
           // set a random parameter on audio url to prevent caching
           response.audio = `http://${global.config.baseUrl}/audio?v=${Math.floor(Math.random() *  100)}`
         })
