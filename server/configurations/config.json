@@ -8,12 +8,17 @@
   },
   "baseUrl": "http://your.ip.address:port",
   "conversation": {
-    "language": "en-US",
+    "language": "pl-PL",
     "audio": {
       "sampleRateOut": 24000,
       "sampleRateIn": 24000
     }
   },
-  "users": {},
+  "users": {
+    "andrzej": {
+      "keyFilePath": "/home/andrzej/Projects/assistant-relay/server/configurations/secrets/andrzej.json",
+      "savedTokensPath": "/home/andrzej/Projects/assistant-relay/server/configurations/tokens/andrzej-tokens.json"
+    }
+  },
   "assistants": {}
 }
