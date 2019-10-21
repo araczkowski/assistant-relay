@@ -1,26 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, {useEffect, useState} from 'react';
+import { Redirect, Route, Switch, withRouter } from "react-router-dom";
+import Menu, {message} from "antd";
+
+/* Layouts */
+import Setup from '~/layout/Setup';
+import Dashboard from "~/layout/Dashboard";
+import Loading from "~/layout/Loading";
+
+/* Views */
+import SetupWiz from '~/views/setup';
+import MenuNav from '~/views/dash/Menu';
+import Home from '~/views/dash/Home';
+import Configuration from '~/views/dash/Configuration';
+import AddUser from '~/views/dash/AddUser';
+import Sandbox from '~/views/dash/Sandbox';
+
+import {post} from '~/helpers/api';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const [userCount, setUserCount] = useState(0);
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        getUserCount();
+    }, []);
+
+    async function getUserCount() {
+        try {
+            const response = await post({}, 'userCount');
+            if(response.data.size <= 0) await post({}, 'init');
+            setUserCount(response.data.size);
+            setLoading(false)
+        } catch (e) {
+            message.error(e.message);
+        }
+    }
+
+    if(loading) return <Loading/>;
+
+    if(userCount >= 1) {
+        return (
+            <Dashboard>
+                <MenuNav/>
+                <Switch>
+                    <Route path="/home" component={Home}/>
+                    <Route path="/configuration" component={Configuration}/>
+                    <Route path="/addUser" component={AddUser}/>
+                    <Route path="/sandbox" component={Sandbox}/>
+                    <Redirect to="/home" />
+                </Switch>
+            </Dashboard>
+        )
+    }
+
+    return (
+        <Setup>
+            <Switch>
+                <Route path="/setup" component={() => <SetupWiz getUserCount={() => getUserCount()}/>}/>
+                <Redirect to="/setup" />
+            </Switch>
+        </Setup>
+
+    );
 }
 
-export default App;
+export default withRouter(App);
