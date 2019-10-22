@@ -47,8 +47,8 @@ var self = module.exports = {
           console.log(`You can now visit ${global.config.baseUrl} in a browser, or send POST requests to it`);
         })();
         if (!global.config.muteStartup) {
-		self.sendTextInput('broadcast Assistant Relay is now setup and running')
-	}
+		      self.sendTextInput('broadcast Assistant Relay is now setup and running')
+	      }
         resolve()
       })
     })

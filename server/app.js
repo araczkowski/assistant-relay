@@ -7,6 +7,8 @@ const startConversation = require('./assistant.js')
 const routes = require('./routes.js');
 const dashboard = require('./dashboard.js');
 const audio = require('./audio.js');
+const ais_add_device = require('./ais_add_device.js');
+const ais_add_token = require('./ais_add_token.js');
 
 const configureUsers = require('./configuration').configureUsers;
 const setupConfigVar = require('./configuration').setupConfigVar;
@@ -30,6 +32,8 @@ app.use( function( req, res, next ) {
 app.use('/', routes);
 app.use('/dashboard', dashboard)
 app.use('/audio', audio)
+app.use('/ais_add_device', ais_add_device)
+app.use('/ais_add_token', ais_add_token)
 
 // Configure users on first run
 configureUsers()

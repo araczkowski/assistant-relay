@@ -1,6 +1,6 @@
 {
-  "name": "assistant-relay",
-  "version": "2.1.1",
+  "name": "google-home-relay",
+  "version": "1.0.0",
   "description": "Middleman server to allow custom integration with Google Home/Assistant",
   "main": "server/app.js",
   "scripts": {
@@ -19,8 +19,12 @@
     "iot",
     "node"
   ],
-  "author": "Greg Hesp <greg.hesp@gmail.com> (http://www.greghesp.com)",
-  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/araczkowski/google-home-relay"
+  },
+  "author": "Andrzej Raczkowski <araczkowski@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "async": "^2.6.1",
     "body-parser": "^1.18.3",

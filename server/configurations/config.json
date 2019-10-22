@@ -16,12 +16,12 @@
   },
   "users": {
     "andrzej": {
-      "keyFilePath": "/home/andrzej/Projects/assistant-relay/server/configurations/secrets/andrzej.json",
-      "savedTokensPath": "/home/andrzej/Projects/assistant-relay/server/configurations/tokens/andrzej-tokens.json"
+      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/andrzej.json",
+      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/andrzej-tokens.json"
     },
     "jolka": {
-      "keyFilePath": "/home/andrzej/Projects/assistant-relay/server/configurations/secrets/jolka.json",
-      "savedTokensPath": "/home/andrzej/Projects/assistant-relay/server/configurations/tokens/jolka-tokens.json"
+      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/jolka.json",
+      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/jolka-tokens.json"
     }
   },
   "assistants": {}
