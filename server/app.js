@@ -19,8 +19,8 @@ const app = express();
 app.use(bodyParser.json());
 
 app.use( function( req, res, next ) {
-	const d = new Date();
-	const now = d.getHours();
+	// const d = new Date();
+	// const now = d.getHours();
 	// if (global.config.quietHours !== undefined && (global.config.quietHours.start <= now || global.config.quietHours.end >= now)) {
 	// 	console.log('Got a command during quiet hours (start: ' + global.config.quietHours.start + ', end: ' + global.config.quietHours.end + ' now: ' + now + '). Ignoring.');
 	// 	res.status(420).send("Dude, chill, it's quiet time!");
@@ -45,3 +45,13 @@ configureUsers()
 .catch((e) => {
   console.log(e)
 })
+
+
+process.on('unhandledRejection', error => {
+    // Will print "unhandledRejection err is not defined"
+    console.error('unhandledRejection', error.message);
+});
+
+process.on('uncaughtException', function (err) {
+    console.error(err);
+}) 

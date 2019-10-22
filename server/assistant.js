@@ -2,7 +2,7 @@ const async = require('async');
 const GoogleAssistant = require('google-assistant');
 const FileReader = require('wav').Reader;
 const FileWriter = require('wav').FileWriter;
-//const wavFileInfo = require('wav-file-info');
+const wavFileInfo = require('wav-file-info');
 
 const terminalImage = require('terminal-image');
 const path = require('path');
@@ -63,7 +63,7 @@ var self = module.exports = {
       const assistant = self.setUser(n)
 
        assistant.start(global.config.conversation, (conversation) => {
-          return self.startConversation(conversation)
+          return self.startConversation(conversation, null, n)
           .then((data) => {
             resolve(data)
           })
@@ -74,13 +74,14 @@ var self = module.exports = {
     })
   },
 
-  sendAudioInput: function() {
+  sendAudioInput: function(n) {
+    console.log("sendAudioInput user: " + n)
     let raw = []
-    const assistant = self.setUser('greg');
-    fs.readFile(`${path.resolve(__dirname, 'response.wav')}`, (err, file) => {
+    const assistant = self.setUser(n);
+    fs.readFile(`${path.resolve(__dirname, n + '-response.wav')}`, (err, file) => {
       if(err) console.log(err)
       assistant.start(global.config.conversation, (conversation) => {
-         return self.startConversation(conversation, file)
+         return self.startConversation(conversation, file, n)
          .then((data) => {
            console.log(data)
            //resolve(data)
@@ -93,27 +94,30 @@ var self = module.exports = {
     });
   },
 
-  startConversation: function(conversation, file) {
+  startConversation: function(conversation, file, n) {
+    console.log("startConversation user: " + n)
     let response = {};
-    const fileStream = self.outputFileStream();
+    const fileStream = self.outputFileStream(n);
     return new Promise((resolve, reject) => {
       conversation.write(file)
       conversation
         .on('audio-data', data => {
-          // ais do not write output info
-          // TODO send this audio to exoplayer
+          // AIS TODO
           // fileStream.write(data)
           // set a random parameter on audio url to prevent caching
-          response.audio = `http://${global.config.baseUrl}/audio?v=${Math.floor(Math.random() *  100)}`
+          // response.audio = '/audio?user=' + n +`&v=${Math.floor(Math.random() *  100)}`
+          response.audio = ''
         })
         .on('response', (text) => {
           if (text) {
             console.log(`Google Assistant: ${text} \n`)
             response.response = text;
-            if(returnAudio) {
-              self.sendTextInput(`broadcast ${text}`, null, gConfig);
-              returnAudio = false;
-            }
+            // AIS TODO
+            // if(returnAudio) {
+            //   console.log("returnAudio: " + n)
+            //   self.sendTextInput(`broadcast ${text}`, n, gConfig);
+            //   returnAudio = false;
+            // }
           }
         })
         .on('end-of-utterance', () => {
@@ -143,7 +147,8 @@ var self = module.exports = {
           } else {
             response.success = true;
             console.log('Conversation Complete \n');
-            fileStream.end()
+            // AIS TODO 
+            // fileStream.end()
             //self.joinAudio();
             conversation.end();
 
@@ -181,11 +186,12 @@ var self = module.exports = {
     return assistant;
   },
 
-  outputFileStream: function() {
-    return new FileWriter(path.resolve(__dirname, 'response.wav'), {
-      sampleRate: global.config.conversation.audio.sampleRateOut,
-      channels: 1
-    });
+  outputFileStream: function(n) {
+    console.log("outputFileStream for " + n)
+    // return new FileWriter(path.resolve(__dirname, n + '-response.wav'), {
+    //   sampleRate: global.config.conversation.audio.sampleRateOut,
+    //   channels: 1
+    // });
   },
 
   joinAudio: function() {

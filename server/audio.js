@@ -4,7 +4,8 @@ const audio = express.Router();
 const path = require('path');
 
 audio.get('/', function (req, res) {
-  res.sendFile(path.resolve(__dirname, 'response.wav'));
+  const user = req.query.user;
+  res.sendFile(path.resolve(__dirname, user + '-response.wav'));
 })
 
 module.exports = audio;
