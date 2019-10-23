@@ -48,6 +48,15 @@ POST http://host:3000/ais_add_token
 ```
 
 
+## remove integration for gate
+
+POST http://host:3000/ais_remove_integration
+
+```json
+{"user":"dom-xxxxxxxxxx"}
+```
+
+
 # Credit
 This project uses the assistant-relay repository from greghesp
 https://github.com/greghesp/assistant-relay

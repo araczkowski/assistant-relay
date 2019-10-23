@@ -13,54 +13,13 @@
       "sampleRateOut": 24000,
       "sampleRateIn": 24000
     },
-    "textQuery": "broadcast W Brzeg mamy teraz 20° i częściowe zachmurzenie Dzisiaj mamy częściowe zachmurzenie, najwyższa prognozowana temperatura to 21°, najniższa 9°\n---\n(Więcej na weather.com)"
+    "textQuery": "pogoda"
   },
   "users": {
-    "dom-123": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-123.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-123-tokens.json"
-    },
-    "dom-dom": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-dom.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-dom-tokens.json"
-    },
-    "dom-ola": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-ola.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-ola-tokens.json"
-    },
-    "dom-ooo": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-ooo.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-ooo-tokens.json"
-    },
-    "dom-xxx": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-xxx.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-xxx-tokens.json"
-    },
-    "dom-yyy": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-yyy.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-yyy-tokens.json"
+    "jolka": {
+      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/jolka.json",
+      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/jolka-tokens.json"
     }
   },
-  "assistants": {
-    "dom-xxx": {
-      "_events": {},
-      "_eventsCount": 2
-    },
-    "dom-yyy": {
-      "_events": {},
-      "_eventsCount": 2
-    },
-    "dom-ola": {
-      "_events": {},
-      "_eventsCount": 2
-    },
-    "dom-dom": {
-      "_events": {},
-      "_eventsCount": 2
-    },
-    "dom-123": {
-      "_events": {},
-      "_eventsCount": 2
-    }
-  }
+  "assistants": {}
 }

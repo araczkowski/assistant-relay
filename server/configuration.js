@@ -27,6 +27,7 @@ const self = module.exports = {
 
       // wipe users
       db.set('users', {}).write();
+      db.set('assistants', {}).write();
 
       // add users to db
       secrets.forEach(file => {

@@ -9,6 +9,7 @@ const dashboard = require('./dashboard.js');
 const audio = require('./audio.js');
 const ais_add_device = require('./ais_add_device.js');
 const ais_add_token = require('./ais_add_token.js');
+const ais_remove_integration = require('./ais_remove_integration.js');
 
 const configureUsers = require('./configuration').configureUsers;
 const setupConfigVar = require('./configuration').setupConfigVar;
@@ -34,6 +35,7 @@ app.use('/dashboard', dashboard)
 app.use('/audio', audio)
 app.use('/ais_add_device', ais_add_device)
 app.use('/ais_add_token', ais_add_token)
+app.use('/ais_remove_integration', ais_remove_integration)
 
 // Configure users on first run
 configureUsers()
