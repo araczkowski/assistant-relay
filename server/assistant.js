@@ -105,7 +105,8 @@ var self = module.exports = {
           // AIS TODO
           fileStream.write(data)
           // set a random parameter on audio url to prevent caching
-          response.audio = '/audio?user=' + n +`&v=${Math.floor(Math.random() *  100)}`
+          //response.audio = '/audio/?user=' + n +`&v=${Math.floor(Math.random() *  100)}`
+          response.audio = '/audio/' + n +`.vaw&v=${Math.floor(Math.random() *  100)}`
         })
         .on('response', (text) => {
           if (text) {
