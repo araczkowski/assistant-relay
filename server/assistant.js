@@ -103,21 +103,20 @@ var self = module.exports = {
       conversation
         .on('audio-data', data => {
           // AIS TODO
-          // fileStream.write(data)
+          fileStream.write(data)
           // set a random parameter on audio url to prevent caching
-          // response.audio = '/audio?user=' + n +`&v=${Math.floor(Math.random() *  100)}`
-          response.audio = ''
+          response.audio = '/audio?user=' + n +`&v=${Math.floor(Math.random() *  100)}`
         })
         .on('response', (text) => {
           if (text) {
             console.log(`Google Assistant: ${text} \n`)
             response.response = text;
             // AIS TODO
-            // if(returnAudio) {
-            //   console.log("returnAudio: " + n)
-            //   self.sendTextInput(`broadcast ${text}`, n, gConfig);
-            //   returnAudio = false;
-            // }
+            if(returnAudio) {
+              console.log("returnAudio for user: " + n + " text: " + text)
+              // self.sendTextInput(`broadcast ${text}`, n, gConfig);
+              returnAudio = false;
+            }
           }
         })
         .on('end-of-utterance', () => {
@@ -148,8 +147,7 @@ var self = module.exports = {
             response.success = true;
             console.log('Conversation Complete \n');
             // AIS TODO 
-            // fileStream.end()
-            //self.joinAudio();
+            fileStream.end();
             conversation.end();
 
             resolve(response);
@@ -189,25 +187,9 @@ var self = module.exports = {
 
   outputFileStream: function(n) {
     console.log("outputFileStream for " + n)
-    // return new FileWriter(path.resolve(__dirname, n + '-response.wav'), {
-    //   sampleRate: global.config.conversation.audio.sampleRateOut,
-    //   channels: 1
-    // });
-  },
-
-  joinAudio: function() {
-    if(!inputFiles.length) {
-      playbackWriter.end("done");
-      return;
-    }
-
-    currentFile = inputFiles.shift()
-    let stream = fs.createReadStream(currentFile);
-    stream.pipe(playbackWriter, {end: false});
-    stream.on('end', () => {
-        console.log(currentFile, "appended")
-        self.joinAudio()
+    return new FileWriter(path.resolve(__dirname, n + '-response.wav'), {
+      sampleRate: global.config.conversation.audio.sampleRateOut,
+      channels: 1
     });
-
   },
 }

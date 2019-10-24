@@ -41,7 +41,7 @@ POST http://host:3000/ais_add_token
 
 ## ask question
 
-POST http://host:3000/ais_add_token
+POST http://host:3000/assistant
 
 ```json
 {"user":"dom-xxxxxxxxxx", "command":"opowiedz jakiś nowy dowcip",  "broadcast":"false", "converse": "true"}
