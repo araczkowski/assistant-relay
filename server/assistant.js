@@ -187,7 +187,7 @@ var self = module.exports = {
 
   outputFileStream: function(n) {
     console.log("outputFileStream for " + n)
-    return new FileWriter(path.resolve(__dirname, n + '-response.wav'), {
+    return new FileWriter(global.config.conversation.audio.path + n + '-response.wav', {
       sampleRate: global.config.conversation.audio.sampleRateOut,
       channels: 1
     });
