@@ -1,6 +1,7 @@
-server/configurations/secrets
-server/configurations/tokens
-server/response.wav
-server/playback.wav
-node_modules
-npm-debug.log
+.idea
+/release
+/logo.ai
+/node_modules
+/package-lock.json
+server/configurations/secrets/*
+server/configurations/tokens/*
