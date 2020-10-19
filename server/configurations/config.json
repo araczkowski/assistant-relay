@@ -11,13 +11,15 @@
     "language": "pl-PL",
     "audio": {
       "sampleRateOut": 24000,
-      "sampleRateIn": 24000
-    }
+      "sampleRateIn": 24000,
+      "path": "/var/www/AIS-WWW/audio/"
+    },
+    "textQuery": "pogoda"
   },
   "users": {
-    "andrzej": {
-      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/andrzej.json",
-      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/andrzej-tokens.json"
+    "dom-84440851628411": {
+      "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/dom-84440851628411.json",
+      "savedTokensPath": "/home/andrzej/Projects/google-home-relay/server/configurations/tokens/dom-84440851628411-tokens.json"
     },
     "jolka": {
       "keyFilePath": "/home/andrzej/Projects/google-home-relay/server/configurations/secrets/jolka.json",

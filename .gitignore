@@ -1,7 +1,8 @@
-.idea
-/release
-/logo.ai
-/node_modules
-/package-lock.json
-server/configurations/secrets/*
-server/configurations/tokens/*
+server/configurations/secrets
+server/configurations/tokens
+server/configurations/config.json
+server/response.wav
+server/playback.wav
+server/config.json
+node_modules
+npm-debug.log

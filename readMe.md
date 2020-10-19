@@ -1,7 +1,62 @@
-![GitHub release (latest by date including pre-releases)](https://img.shields.io/github/v/release/greghesp/assistant-relay?include_prereleases&style=flat-square) ![GitHub All Releases](https://img.shields.io/github/downloads/greghesp/assistant-relay/total?style=flat-square) [![GOSPB](https://img.shields.io/badge/Awarded-Google%20Open%20Source%20Peer%20Bonus-blue?style=flat-square)](https://opensource.googleblog.com/2020/04/announcing-2020-first-quarter-google.html?fbclid=IwAR0DJtks904nSRlPLrIFbuAkRHwvuXYbbZ6N0UPpn1Qkb2G0PyT70XU4N3U)
-
 # Installation
 
 Download a copy of this repository and then use `npm install` to get started
 
-pm2 start npm --name GoogleAssistant -- start
+pm2 start npm --name GoogleHome -- start
+
+---
+
+# Google configure
+
+1. OAuth2 JSON file for project/device from Google
+https://developers.google.com/assistant/sdk/guides/service/python/embed/config-dev-project-and-account
+
+2. Enable Google Assistant API
+https://console.developers.google.com/apis/library/embeddedassistant.googleapis.com
+
+3. Enable the oAuthScreen
+
+
+# Configure device and user
+
+## device authentication
+POST http://host:3000/ais_add_device
+
+```json
+{"user": "dom-xxxxxxxxxx", "oauthJson":
+{"installed":{"client_id":"xxxxxxxx-fsdfdsfdsfdsfds.apps.googleusercontent.com","project_id":"ai-speaker-fsdfsdfsdf ","auth_uri":"https://accounts.google.com/o/oauth2/auth","token_uri":"https://accounts.google.com/o/oauth2/token","auth_provider_x509_cert_url":"https://www.googleapis.com/oauth2/v1/certs","client_secret":"uGJYidEoSH6RaFOjuk58X5k3","redirect_uris":["urn:ietf:wg:oauth:2.0:oob","http://localhost"]}})
+
+```
+
+
+## user authentication
+
+POST http://host:3000/ais_add_token
+
+```json
+{"user": "dom-xxxxxxxxxx", "oauthCode": "z/dasdsadsadsadsadsadsa-dasdsadwqwqwqqwwqwww"}
+
+```
+
+
+## ask question
+
+POST http://host:3000/assistant
+
+```json
+{"user":"dom-xxxxxxxxxx", "command":"opowiedz jakiś nowy dowcip",  "broadcast":"false", "converse": "true"}
+```
+
+
+## remove integration for gate
+
+POST http://host:3000/ais_remove_integration
+
+```json
+{"user":"dom-xxxxxxxxxx"}
+```
+
+
+# Credit
+This project uses the assistant-relay repository from greghesp
+https://github.com/greghesp/assistant-relay

@@ -17,7 +17,7 @@ const self = module.exports = {
       // loop through the secrets folder. Add new files to newFiles array
       fs.readdirSync(secretsFolder).forEach(file => {
         if(file.split('.').pop() === 'json'){
-          // ais only if token exists
+          // ais, only if token exists
           const name = path.parse(file).name;
           if (fs.existsSync(path.resolve(__dirname, `configurations/tokens/${name}-tokens.json`))) {
             secrets.push(file)
@@ -27,6 +27,7 @@ const self = module.exports = {
 
       // wipe users
       db.set('users', {}).write();
+      db.set('assistants', {}).write();
 
       // add users to db
       secrets.forEach(file => {
