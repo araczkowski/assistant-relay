@@ -3,3 +3,5 @@
 /logo.ai
 /node_modules
 /package-lock.json
+server/configurations/secrets/*
+server/configurations/tokens/*
